@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
-import {setupRedoc} from "./redoc.middleware";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -14,8 +13,6 @@ async function bootstrap() {
 
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api', app, document);
-
-  setupRedoc(app);
 
   await app.listen(process.env.PORT ?? 3000);
 }
