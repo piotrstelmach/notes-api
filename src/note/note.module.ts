@@ -5,7 +5,6 @@ import {PrismaService} from "../prisma.service";
 
 @Module({
   controllers: [NoteController],
-  providers: [NoteService],
-  imports: [PrismaService],
+  providers: [NoteService, PrismaService],
 })
 export class NoteModule {}
